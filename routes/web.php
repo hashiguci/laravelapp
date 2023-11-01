@@ -23,15 +23,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-/*
-青本に記載されている下記のルーティングの書き方はlaravel 7までの書き方。
-Route::get('hello', 'HelloController');
-
-laravel 8からは以下の方法でルーティングを書く必要がある。
-Route::get('hello', HelloController::class]);
-*/
-
-Route::get('hello', HelloController::class);
+Route::get('hello', [HelloController::class, 'index']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
