@@ -33,7 +33,9 @@ Route::get('hello', 'App\Http\Controllers\HelloController@index');
 ② useでコントローラをインポートして以下のようにルーティングを書く
 Route::get('hello', [HelloController::class, 'index']);
 */
-Route::get('hello/{id?}/{pass?}', [HelloController::class, 'index']);
+
+Route::get('hello', [HelloController::class, 'index']);
+Route::get('hello/other', [HelloController::class, 'other']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
