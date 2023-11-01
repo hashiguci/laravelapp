@@ -25,17 +25,13 @@ Route::get('/dashboard', function () {
 
 /*
 青本に記載されている下記のルーティングの書き方はlaravel 7までの書き方。
-Route::get('hello', 'HelloController@index');
+Route::get('hello', 'HelloController');
 
 laravel 8からは以下の方法でルーティングを書く必要がある。
-① 完全修飾名でコントローラを指定する
-Route::get('hello', 'App\Http\Controllers\HelloController@index');
-② useでコントローラをインポートして以下のようにルーティングを書く
-Route::get('hello', [HelloController::class, 'index']);
+Route::get('hello', HelloController::class]);
 */
 
-Route::get('hello', [HelloController::class, 'index']);
-Route::get('hello/other', [HelloController::class, 'other']);
+Route::get('hello', HelloController::class);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
