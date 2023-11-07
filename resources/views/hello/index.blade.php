@@ -17,8 +17,7 @@
         @endslot
 
         @slot('msg_content')
-        {{-- これはメッセージの表示です。 --}}
-        {{$data}}
+        これはメッセージの表示です。
         @endslot
     @endcomponent
 @endsection
