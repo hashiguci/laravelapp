@@ -9,14 +9,14 @@
 
 @section('content')
     <p>ここが本文のコンテンツです。</p>
-    <p>
-        Controller value<br>
-        'message' = {{$message}}
-    </p>
-    <p>
-        ViewCompposer value<br>
-        'view_message' = {{$view_message}}
-    </p>
+    <table>
+    @foreach ($data as $item)
+    <tr>
+        <th>{{$item['name']}}</th>
+        <td>{{$item['mail']}}</td>
+    </tr>
+    @endforeach
+    </table>
 @endsection
 
 @section('footer')

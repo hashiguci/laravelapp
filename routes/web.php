@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HelloController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Middleware\HelloMiddleware;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,7 +25,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('hello', [HelloController::class, 'index']);
+Route::get('hello', [HelloController::class, 'index'])->middleware(HelloMiddleware::class);
 Route::post('hello', [HelloController::class, 'post']);
 
 Route::middleware('auth')->group(function () {
