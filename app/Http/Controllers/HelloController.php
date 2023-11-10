@@ -43,7 +43,6 @@ class HelloController extends Controller
         ];
 
         $validator = Validator::make($request->all(), $rules, $messages);
-
         $validator->sometimes('age', 'min:0', function ($input) {
             return is_numeric($input->age);
         });
