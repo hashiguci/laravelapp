@@ -17,12 +17,12 @@
     <table>
         @csrf
 
-        @if ($errors->has('name'))
+        @error('name')
             <tr>
                 <th>ERROR</th>
-                <td>{{ $errors->first('name') }}</td>
+                <td>{{ $message }}</td>
             </tr>
-        @endif
+        @enderror
         <tr>
             <th>name: </th>
             <td>
@@ -30,12 +30,12 @@
             </td>
         </tr>
 
-        @if ($errors->has('mail'))
+        @error('mail')
             <tr>
                 <th>ERROR</th>
-                <td>{{ $errors->first('mail') }}</td>
+                <td>{{ $message }}</td>
             </tr>
-        @endif
+        @enderror
         <tr>
             <th>mail: </th>
             <td>
@@ -43,13 +43,12 @@
             </td>
         </tr>
 
-        @if ($errors->has('age'))
-        {{-- $errors->get('項目名')とすれば指定した項目で発生してるすべてのエラーメッセージを取り出すことができる（配列） --}}
+        @error('age')
             <tr>
                 <th>ERROR</th>
-                <td>{{ $errors->first('age') }}</td>
+                <td>{{ $message }}</td>
             </tr>
-        @endif
+        @enderror
         <tr>
             <th>age: </th>
             <td>
