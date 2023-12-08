@@ -27,6 +27,8 @@ Route::get('/dashboard', function () {
 
 Route::get('hello', [HelloController::class, 'index']);
 Route::post('hello', [HelloController::class, 'post']);
+Route::get('hello/add', [HelloController::class, 'add']);
+Route::post('hello/add', [HelloController::class, 'create']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
