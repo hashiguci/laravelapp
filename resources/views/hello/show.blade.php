@@ -8,24 +8,18 @@
 @endsection
 
 @section('content')
-    <table>
-        <tr>
-            <th>id: </th>
-            <td>{{ $items->id }}</td>
-        </tr>
-        <tr>
-            <th>name: </th>
-            <td>{{ $items->name }}</td>
-        </tr>
-        <tr>
-            <th>mail: </th>
-            <td>{{ $items->mail }}</td>
-        </tr>
-        <tr>
-            <th>age: </th>
-            <td>{{ $items->age }}</td>
-        </tr>
-    </table>
+    @if ($items != null)
+        @foreach ($items as $item)
+            <table width="400px">
+                <tr>
+                    <th width="50px">id: </th>
+                    <td width="50px">{{ $item->id }}</td>
+                    <th width="50px">name: </th>
+                    <td>{{ $item->name }}</td>
+                </tr>
+            </table>
+        @endforeach
+    @endif
 @endsection
 
 @section('footer')
