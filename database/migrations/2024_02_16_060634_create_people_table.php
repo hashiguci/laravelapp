@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('people', function (Blueprint $table) {
-            $table->id();
+            $table->id(); // 青本では$table->bigInteger('id')だが、バージョンが上がってBlueprintクラスにidカラム用メソッドができてるよう
             $table->string('name');
             $table->string('mail');
             $table->integer('age');
